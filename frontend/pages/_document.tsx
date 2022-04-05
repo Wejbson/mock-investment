@@ -13,7 +13,7 @@ export default class CustomDocument extends Document {
                     <title>Next.js PWA Example</title>
 
                     <link rel="manifest" href="./manifest.json" />
-                    <link href="./icons/favicon-16x16.png" rel="icon" type="image/png" ㅔsizes="16x16" />
+                    <link href="./icons/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" />
                     <link href="./icons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
                     <link rel="apple-touch-icon" href="./icons/apple-touch-icon-180x180.png" />
                     <meta name="theme-color" content="#FFFFFF" />
