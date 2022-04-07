@@ -1,8 +1,8 @@
 import { AxiosPromise } from 'axios';
 import { Client } from '@requests/common/client';
 import SignUpReqDto from '@models/account/req/signUpReqDto';
-import LoginReqDto from '@models/account/req/LoginReqDto';
-import LoginResDto from '@models/account/res/LoginResDto';
+import LoginResDto from '@models/account/res/loginResDto';
+import LoginReqDto from '@models/account/req/loginReqDto';
 
 export namespace AccountRequest {
     const client = new Client('/account');

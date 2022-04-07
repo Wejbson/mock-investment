@@ -9,7 +9,7 @@ export class Client {
         onBeforeResponse: () => void = () => {},
         onResponseError?: (res?: any) => void,
     ) {
-        this._axios = axios.create({ baseURL: `api/${baseUrl}` });
+        this._axios = axios.create({ baseURL: `api${baseUrl}` });
 
         this._axios.interceptors.request.use(
             (config) => {
