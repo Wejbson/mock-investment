@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Description;
 import javax.validation.constraints.NotBlank;
 
 @Data
-@Description(value = "회원가입 Request DTO")
-public class SignUpRequestDto {
+@Description(value = "로그인 Request DTO")
+public class LoginReqDto {
 
     @NotBlank
     private String id;
@@ -15,9 +15,4 @@ public class SignUpRequestDto {
     @NotBlank
     private String password;
 
-    @NotBlank
-    private String name;
-
-    @NotBlank
-    private String tel;
 }

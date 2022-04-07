@@ -1,8 +1,8 @@
 package com.wejbson.mockInvestment.domain.member.service;
 
 import com.wejbson.mockInvestment.domain.member.domain.Member;
-import com.wejbson.mockInvestment.domain.member.dto.LoginRequestDto;
-import com.wejbson.mockInvestment.domain.member.dto.SignUpRequestDto;
+import com.wejbson.mockInvestment.domain.member.dto.LoginReqDto;
+import com.wejbson.mockInvestment.domain.member.dto.SignUpReqDto;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -11,7 +11,7 @@ import java.util.Map;
 public class AccountServiceImpl implements AccountService{
 
     @Override
-    public Map<String, Object> signUp(SignUpRequestDto signUpRequestDto) {
+    public Map<String, Object> signUp(Member member) {
 
         // 중복된 id 존재하는지
 
@@ -21,7 +21,7 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
-    public Member login(LoginRequestDto loginRequestDto) {
+    public Member login(LoginReqDto loginRequestDto) {
 
         // id, password 검증 로직
 
