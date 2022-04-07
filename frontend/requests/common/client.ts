@@ -1,15 +1,15 @@
-import axios, { AxiosInstance, AxiosPromise, AxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 export class Client {
     private readonly _axios: AxiosInstance;
 
     constructor(
-        baseURL: string,
+        baseUrl: string,
         onBeforeRequest: () => void = () => {},
         onBeforeResponse: () => void = () => {},
         onResponseError?: (res?: any) => void,
     ) {
-        this._axios = axios.create({ baseURL });
+        this._axios = axios.create({ baseURL: `api/${baseUrl}` });
 
         this._axios.interceptors.request.use(
             (config) => {
@@ -37,18 +37,16 @@ export class Client {
 
     private static processResponseError(e: { status: number; data: any }) {
         const { status, data } = e;
+        const { message } = data;
 
-        switch (status) {
-            case 999:
-                return;
-        }
+        console.error(message);
     }
 
-    async get<T>(url: string, params: object = {}, config?: AxiosRequestConfig): Promise<AxiosPromise<T>> {
+    async get<T>(url: string, params: object = {}, config?: AxiosRequestConfig) {
         return await this._axios.get<T>(url, { params, ...config });
     }
 
-    async post<T>(url: string, data: object = {}, params: object = {}, config?: AxiosRequestConfig): Promise<AxiosPromise<T>> {
+    async post<T>(url: string, data: object = {}, params: object = {}, config?: AxiosRequestConfig) {
         return await this._axios.post<T>(url, data, { params, ...config });
     }
 }
