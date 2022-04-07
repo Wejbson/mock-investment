@@ -2,6 +2,7 @@ package com.wejbson.mockInvestment.domain.member.controller;
 
 import com.wejbson.mockInvestment.domain.member.domain.Member;
 import com.wejbson.mockInvestment.domain.member.dto.LoginReqDto;
+import com.wejbson.mockInvestment.domain.member.dto.LoginResDto;
 import com.wejbson.mockInvestment.domain.member.dto.SignUpReqDto;
 import com.wejbson.mockInvestment.domain.member.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
@@ -30,26 +31,23 @@ public class AccountController {
     }
 
     @PostMapping("/sign-up")
-    private String signUp(@RequestBody @Valid SignUpReqDto signUpRequestDto) {
+    private ResponseEntity<String> signUp(@RequestBody @Valid SignUpReqDto signUpReqDto) {
 
-        Member member = new Member();
-        member.setId(signUpRequestDto.getId());
-        member.setName(signUpRequestDto.getName());
-        member.setPassword(signUpRequestDto.getPassword());
-        member.setTel(signUpRequestDto.getTel());
+        accountService.signUp(signUpReqDto);
 
-        accountService.signUp(member);
-
-        return "tmp";
+        return ResponseEntity.status(HttpStatus.OK).body("success");
     }
 
     @PostMapping("/login")
-    private Member login(@RequestBody @Valid LoginReqDto loginRequestDto) {
+    private ResponseEntity<LoginResDto> login(@RequestBody @Valid LoginReqDto loginReqDto) {
 
-        accountService.login(loginRequestDto);
+        Member member = accountService.login(loginReqDto);
 
         // 로그인 서비스단 호출
-        return null;
+        return ResponseEntity.status(HttpStatus.OK).body(LoginResDto.builder()
+                .id(member.getId())
+                .name(member.getName())
+                .token("123456789a").build());
     }
 
     @PostMapping("/test-exception")

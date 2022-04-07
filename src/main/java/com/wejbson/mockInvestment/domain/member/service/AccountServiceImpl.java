@@ -3,31 +3,64 @@ package com.wejbson.mockInvestment.domain.member.service;
 import com.wejbson.mockInvestment.domain.member.domain.Member;
 import com.wejbson.mockInvestment.domain.member.dto.LoginReqDto;
 import com.wejbson.mockInvestment.domain.member.dto.SignUpReqDto;
+import com.wejbson.mockInvestment.domain.member.repository.AccountRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 
 @Service
+@Transactional(readOnly = true)
 public class AccountServiceImpl implements AccountService{
 
+    @Autowired
+    private AccountRepository accountRepository;
+
     @Override
-    public Map<String, Object> signUp(Member member) {
+    @Transactional
+    public void signUp(SignUpReqDto signUpReqDto) {
 
         // 중복된 id 존재하는지
+        if(!isNotExistId(signUpReqDto.getId())){
+            throw new RuntimeException("이미 존재하는 아이디입니다.");
+        }
 
         // DB 저장 로직
+        Member member = new Member();
+        member.setId(signUpReqDto.getId());
+        member.setName(signUpReqDto.getName());
+        member.setPassword(signUpReqDto.getPassword());
+        member.setTel(signUpReqDto.getTel());
+        accountRepository.save(member);
 
-        return null;
     }
 
     @Override
-    public Member login(LoginReqDto loginRequestDto) {
+    public Member login(LoginReqDto loginReqDto) {
 
-        // id, password 검증 로직
+        // id를 통한 Member 객체 데이터 조회
+        Member member = accountRepository.find(loginReqDto.getId());
 
-        // Member 객체 데이터 조회
+        if(member == null)
+        {
+            throw new RuntimeException("존재하지 않는 아이디입니다.");
+        }
 
-        // Member 객체 전달
-        return null;
+        if(!loginReqDto.getPassword().equals(member.getPassword()))
+        {
+            throw new RuntimeException("잘못된 비밀번호입니다.");
+        }
+
+        return member;
+    }
+
+    private boolean isNotExistId(String id) {
+        if(accountRepository.find(id) != null)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

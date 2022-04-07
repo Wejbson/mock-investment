@@ -9,7 +9,7 @@ import java.util.Map;
 public interface AccountService {
 
     // 회원가입 로직
-    Map<String, Object> signUp(Member member);
+    void signUp(SignUpReqDto signUpReqDto);
 
     // 로그인 로직
     Member login(LoginReqDto loginRequestDto);
