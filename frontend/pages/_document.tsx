@@ -10,7 +10,7 @@ export default class CustomDocument extends Document {
                     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
                     <meta name="description" content="Description" />
                     <meta name="keywords" content="Keywords" />
-                    <title>Next.js PWA Example</title>
+                    <title>다운비트</title>
 
                     <link rel="manifest" href="./manifest.json" />
                     <link href="./icons/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" />

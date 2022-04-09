@@ -4,6 +4,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   border: 0;
   font: inherit;
   vertical-align: baseline;
+  color: #393939;
+}
+
+html, body, body > :first-child {
+  height: 100%;
 }
 
 /* HTML5 display-role reset for older browsers */
