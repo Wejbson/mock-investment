@@ -12,10 +12,10 @@ export default class CustomDocument extends Document {
                     <meta name="keywords" content="Keywords" />
                     <title>다운비트</title>
 
-                    <link rel="manifest" href="./manifest.json" />
-                    <link href="./icons/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" />
-                    <link href="./icons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
-                    <link rel="apple-touch-icon" href="./icons/apple-touch-icon-180x180.png" />
+                    <link rel="manifest" href="/manifest.json" />
+                    <link href="/icons/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" />
+                    <link href="/icons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
+                    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-180x180.png" />
                     <meta name="theme-color" content="#FFFFFF" />
                 </Head>
                 <body>

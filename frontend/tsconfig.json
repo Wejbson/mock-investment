@@ -30,6 +30,15 @@
       ],
       "@styles/*": [
         "./styles/*"
+      ],
+      "@stores/*": [
+        "./stores/*"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@defines/*": [
+        "./defines/*"
       ]
     }
   },

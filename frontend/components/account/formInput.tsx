@@ -1,19 +1,16 @@
-import { HTMLInputTypeAttribute } from 'react';
+import { HTMLProps } from 'react';
 
-export interface FormInputProps {
+export interface FormInputProps extends HTMLProps<HTMLInputElement> {
     title: string;
-    value: string;
-    type?: HTMLInputTypeAttribute;
-    onChangeValue(value: string): void;
 }
 
 export default function FormInput(props: FormInputProps) {
-    const { title, value, type, onChangeValue } = props;
+    const { title, ...rest } = props;
 
     return (
         <>
             <div>
-                <input value={value} placeholder={title} onChange={(e) => onChangeValue(e.target.value)} type={type} />
+                <input {...rest} placeholder={title} />
             </div>
 
             <style jsx>
