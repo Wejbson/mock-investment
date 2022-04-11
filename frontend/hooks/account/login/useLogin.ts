@@ -10,7 +10,7 @@ export interface IUseLoginParams {
 }
 
 export interface IUseLogin {
-    onClickLogin(): void;
+    login(): void;
 }
 
 export default function useLogin(params: IUseLoginParams): IUseLogin {
@@ -20,7 +20,7 @@ export default function useLogin(params: IUseLoginParams): IUseLogin {
     const loginData: LoginState = useSelector((state: LoginState) => state);
     const dispatch = useDispatch();
 
-    const onClickLogin = async () => {
+    const login = async () => {
         const { data } = await AccountRequest.login({ id, password });
         dispatch(setLoginInfo(data));
         localStorage.setItem(StorageKey.TOKEN, data.token);
@@ -28,6 +28,6 @@ export default function useLogin(params: IUseLoginParams): IUseLogin {
     };
 
     return {
-        onClickLogin,
+        login,
     };
 }

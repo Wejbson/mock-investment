@@ -3,56 +3,33 @@ import AccountButton from '@components/account/accountButton';
 import useInput from '@hooks/common/useInput';
 import useForm from '@hooks/common/useForm';
 import useLogin from '@hooks/account/login/useLogin';
+import AccountFormStyle from '@components/account/accountFormStyle';
+import Link from 'next/link';
 
 export default function Login() {
     const useInputId = useInput({ initialValue: '' });
     const useInputPassword = useInput({ initialValue: '' });
-    const { onClickLogin } = useLogin({ id: useInputId.value as string, password: useInputPassword.value as string });
-    const useFormLogin = useForm({ onSubmit: onClickLogin });
+    const { login } = useLogin({ id: useInputId.value as string, password: useInputPassword.value as string });
+    const useFormLogin = useForm({ onSubmit: login });
 
     return (
         <>
             <form {...useFormLogin}>
                 <div className={'form-wrapper'}>
                     <div className={'input-wrapper'}>
-                        <FormInput title={'아이디'} {...useInputId} />
-                        <FormInput title={'비밀번호'} {...useInputPassword} type={'password'} />
+                        <FormInput title={'아이디'} {...useInputId} required />
+                        <FormInput title={'비밀번호'} {...useInputPassword} type={'password'} required />
                     </div>
 
-                    <AccountButton className={'button--login'}>로그인</AccountButton>
+                    <AccountButton className={'button--submit'}>로그인</AccountButton>
 
-                    <button type={'button'} className={'button--register'}>
-                        회원가입
-                    </button>
+                    <Link href={'/account/sign-up'}>
+                        <p className={'link--register'}>회원가입</p>
+                    </Link>
                 </div>
             </form>
 
-            <style jsx global>
-                {`
-                    form {
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-
-                    .input-wrapper > *:not(:first-child) {
-                        margin-top: 5vh;
-                    }
-
-                    .button--login {
-                        margin-top: 5vh;
-                    }
-
-                    .button--register {
-                        margin-top: 3vh;
-                        background: none;
-                        width: 100%;
-                        border: none;
-                        color: #5a5a5a;
-                    }
-                `}
-            </style>
+            <AccountFormStyle />
         </>
     );
 }
