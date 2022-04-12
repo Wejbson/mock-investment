@@ -1,4 +1,4 @@
-package com.wejbson.mockInvestment.global.config;
+package com.wejbson.mockInvestment.globals.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

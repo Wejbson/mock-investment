@@ -1,4 +1,4 @@
-package com.wejbson.mockInvestment.domain.member.dto;
+package com.wejbson.mockInvestment.domains.member.dto;
 
 import lombok.Data;
 import org.springframework.context.annotation.Description;
@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Description;
 import javax.validation.constraints.NotBlank;
 
 @Data
-@Description(value = "로그인 Request DTO")
-public class LoginReqDto {
+@Description(value = "회원가입 Request DTO")
+public class SignUpReqDto {
 
     @NotBlank
     private String id;
@@ -15,4 +15,9 @@ public class LoginReqDto {
     @NotBlank
     private String password;
 
+    @NotBlank
+    private String name;
+
+    @NotBlank
+    private String tel;
 }

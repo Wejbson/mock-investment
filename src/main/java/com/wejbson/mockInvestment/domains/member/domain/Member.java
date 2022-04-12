@@ -1,4 +1,4 @@
-package com.wejbson.mockInvestment.domain.member.domain;
+package com.wejbson.mockInvestment.domains.member.domain;
 
 import lombok.Getter;
 import lombok.Setter;

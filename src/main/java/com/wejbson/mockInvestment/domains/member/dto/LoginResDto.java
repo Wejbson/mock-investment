@@ -1,7 +1,6 @@
-package com.wejbson.mockInvestment.domain.member.dto;
+package com.wejbson.mockInvestment.domains.member.dto;
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 
 import javax.validation.constraints.NotBlank;

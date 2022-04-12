@@ -1,14 +1,12 @@
-package com.wejbson.mockInvestment.domain.member.service;
+package com.wejbson.mockInvestment.domains.member.service;
 
-import com.wejbson.mockInvestment.domain.member.domain.Member;
-import com.wejbson.mockInvestment.domain.member.dto.LoginReqDto;
-import com.wejbson.mockInvestment.domain.member.dto.SignUpReqDto;
-import com.wejbson.mockInvestment.domain.member.repository.AccountRepository;
+import com.wejbson.mockInvestment.domains.member.domain.Member;
+import com.wejbson.mockInvestment.domains.member.dto.LoginReqDto;
+import com.wejbson.mockInvestment.domains.member.dto.SignUpReqDto;
+import com.wejbson.mockInvestment.domains.member.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Map;
 
 @Service
 @Transactional(readOnly = true)

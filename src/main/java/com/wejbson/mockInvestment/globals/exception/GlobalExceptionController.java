@@ -1,4 +1,4 @@
-package com.wejbson.mockInvestment.global.exception;
+package com.wejbson.mockInvestment.globals.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

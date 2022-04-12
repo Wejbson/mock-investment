@@ -1,11 +1,10 @@
-package com.wejbson.mockInvestment.domain.member.repository;
+package com.wejbson.mockInvestment.domains.member.repository;
 
-import com.wejbson.mockInvestment.domain.member.domain.Member;
+import com.wejbson.mockInvestment.domains.member.domain.Member;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 
 @Repository
 public class AccountRepository {

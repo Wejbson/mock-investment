@@ -1,10 +1,10 @@
-package com.wejbson.mockInvestment.domain.member.controller;
+package com.wejbson.mockInvestment.domains.member.controller;
 
-import com.wejbson.mockInvestment.domain.member.domain.Member;
-import com.wejbson.mockInvestment.domain.member.dto.LoginReqDto;
-import com.wejbson.mockInvestment.domain.member.dto.LoginResDto;
-import com.wejbson.mockInvestment.domain.member.dto.SignUpReqDto;
-import com.wejbson.mockInvestment.domain.member.service.AccountService;
+import com.wejbson.mockInvestment.domains.member.domain.Member;
+import com.wejbson.mockInvestment.domains.member.dto.LoginReqDto;
+import com.wejbson.mockInvestment.domains.member.dto.LoginResDto;
+import com.wejbson.mockInvestment.domains.member.dto.SignUpReqDto;
+import com.wejbson.mockInvestment.domains.member.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

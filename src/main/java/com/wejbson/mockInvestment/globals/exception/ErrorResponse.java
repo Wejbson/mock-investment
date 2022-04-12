@@ -1,4 +1,4 @@
-package com.wejbson.mockInvestment.global.exception;
+package com.wejbson.mockInvestment.globals.exception;
 
 import lombok.Builder;
 import lombok.Getter;
