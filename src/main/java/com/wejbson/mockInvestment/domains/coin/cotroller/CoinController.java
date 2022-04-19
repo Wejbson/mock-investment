@@ -20,16 +20,11 @@ public class CoinController {
     private CoinService coinService;
 
     @RequestMapping("/market-list")
-    private ResponseEntity<MarketListResDto> getMarketList(){
+    private ResponseEntity<MarketListResDto> getMarketList() {
 
         MarketListResDto marketListResDto = MarketListResDto.builder().marketList(coinService.getMarketList()).build();
 
         return ResponseEntity.status(HttpStatus.OK).body(marketListResDto);
-    }
-
-    @PostConstruct
-    private void init(){
-        coinService.saveCoins();
     }
 
 }
