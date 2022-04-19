@@ -12,10 +12,14 @@ public class MarketResDto {
 
     private String engName;
 
+    private String currentPrice;
+
+
     @Builder
-    public MarketResDto (String market, String korName, String engName){
+    public MarketResDto (String market, String korName, String engName, String currentPrice){
         this.market = market;
         this.korName = korName;
         this.engName = engName;
+        this.currentPrice = currentPrice;
     }
 }

@@ -10,4 +10,7 @@ public interface CoinService {
 
     @Description(value = "업비트 market 리스트 조회")
     public List<MarketResDto> getMarketList();
+
+    @Description("코인정보 DB에 저장하기 임시")
+    public void saveCoins();
 }

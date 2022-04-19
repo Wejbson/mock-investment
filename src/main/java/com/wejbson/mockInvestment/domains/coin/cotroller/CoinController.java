@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
+
 @RestController
 @RequestMapping("/coin")
 public class CoinController {
@@ -23,6 +25,11 @@ public class CoinController {
         MarketListResDto marketListResDto = MarketListResDto.builder().marketList(coinService.getMarketList()).build();
 
         return ResponseEntity.status(HttpStatus.OK).body(marketListResDto);
+    }
+
+    @PostConstruct
+    private void init(){
+        coinService.saveCoins();
     }
 
 }
